@@ -1,0 +1,22 @@
+image:
+  name: austincodeshop/backend:0.1.5
+  run-as-user: 1000
+pipelines:
+  default:
+    - step:
+        name: Build and test
+        script:
+          - ./bin/pipelines-build.sh
+  branches:
+    staging:
+      - step:
+          name: Build and test
+          script:
+            - ./bin/pipelines-build.sh
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to staging
+          deployment: staging
+          script:
+            - ./bin/pipelines-deploy.sh

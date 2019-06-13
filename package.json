@@ -1,0 +1,39 @@
+{
+  "name": "@marvelousjs/service-daemon",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@sendgrid/client": "^6.3.0",
+    "aws-sdk": "^2.441.0",
+    "axios": "^0.18.0",
+    "marvelous": "^0.12.2",
+    "nose": "^0.1.0",
+    "python": "0.0.4",
+    "tornado": "^0.11.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.10",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.1"
+  },
+  "scripts": {
+    "build:dev": "mvs generate all && tsc && cd src/.auto/clients && tsc",
+    "build:prod": "mvs generate all && tsc && cd src/.auto/clients && tsc",
+    "generate:client": "mvs generate client",
+    "generate:types": "mvs generate types",
+    "link": "npm link && cd src/.auto/clients && npm link",
+    "postinstall": "cd src/.auto/clients && npm install",
+    "start:dev": "NODE_ENV=development node dist/scripts/start",
+    "start:local": "NODE_ENV=local node dist/scripts/start",
+    "start:prod": "NODE_ENV=production nohup nodemon dist/scripts/start -I --ignore data/ &",
+    "start:test": "NODE_ENV=test node dist/scripts/start",
+    "test:all": "NODE_ENV=test mocha -r ts-node/register src/**/*.spec.ts",
+    "test:system": "NODE_ENV=test mocha -r ts-node/register src/tests/system/**/*.spec.ts",
+    "test:unit": "NODE_ENV=test mocha -r ts-node/register src/tests/unit/**/*.spec.ts",
+    "watch": "./bin/scripts/watch.sh",
+    "unlink": "npm unlink && cd src/.auto/clients && npm unlink"
+  }
+}

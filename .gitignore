@@ -1,0 +1,4 @@
+data/local/
+data/production/
+dist/
+src/server/configs/local.ts
