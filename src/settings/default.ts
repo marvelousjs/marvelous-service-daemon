@@ -1,5 +1,5 @@
 import { ISettings } from '../interfaces';
 
 export const settings: ISettings = {
-  url: 'http://localhost:4283'
+  url: 'http://localhost:42680'
 };
