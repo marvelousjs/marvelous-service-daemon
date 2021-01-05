@@ -5,7 +5,7 @@
   "dependencies": {
     "@sendgrid/client": "^6.3.0",
     "aws-sdk": "^2.441.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "marvelous": "^0.12.2",
     "nose": "^0.1.0",
     "python": "0.0.4",
